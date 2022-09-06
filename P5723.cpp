@@ -1,25 +1,32 @@
 #include<stdio.h>
+#include<math.h>
+
 int main(){
-	int L;
-	//scanf("%d",&L);
-	int isPrime=0;
-	int cnt=0;
-	int a[100000]={0};
-	for(int i=2;i<100000;i++){
-		isPrime=0;
+	int a[100000]={2};
+	int cnt=1;
+	for(int i=3;i<100000;i++){
+			int isPrime=1;
 		for(int j=2;j<i;j++){
-			if(i%j==0&&i!=2){
-				isPrime=1;
+			if(i%j==0){
+				isPrime=0;
 				break;
 			}
 		}
-		if(isPrime==0){
+		if(isPrime==1) {
 			a[cnt]=i;
 			cnt++;
 		}
 	}
-	for(int i=0;i<100;i++){
-		printf("%d\n",&a[i]);
-	}	
+	
+	int L;
+	int sum=0;
+	cnt=0;
+	scanf("%d",&L);
+	for(int i=0;sum<L;i++){
+		sum+=a[i];
+		printf("%d\n",a[i]);
+		cnt++;
+	}
+	printf("%d",cnt);
 	return 0;
-} 
+}
